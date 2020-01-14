@@ -4,7 +4,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'tpope/vim-surround'
-  Plug 'wadackel/vim-dogrun'
+  Plug 'morhetz/gruvbox'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
@@ -12,7 +12,8 @@ call plug#end()
 
 let mapleader = "\<Space>"
 syntax on
-colorscheme dogrun
+set background=dark
+colorscheme gruvbox
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
