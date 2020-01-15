@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
   Plug 'samoshkin/vim-mergetool'
   Plug 'tpope/vim-fugitive'
+  Plug 'preservim/nerdcommenter'
 call plug#end()
 
 " General ------------------------------
@@ -42,7 +43,7 @@ nmap <leader>sp :split<cr>
 nmap <leader>to :e ~/.todo.md<cr>
 nmap <leader>tt :tabnew<cr>
 nmap <leader>tn :tabnext<cr>
-nmap <leader>tp :tabnext<cr>
+nmap <leader>tp :tabprevious<cr>
 nmap <leader>ve :e $MYVIMRC<cr>
 nmap <leader>vl :source $MYVIMRC<cr>
 nmap <leader>vs :vsplit<cr>
