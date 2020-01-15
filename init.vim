@@ -24,10 +24,10 @@ nnoremap <leader>mm :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>mb :wincmd =<cr>
 
 " -----Normal Mode Keymapping-----
-nmap <leader>cc ^/ ]<cr>rx<esc>$
+nmap <leader>cc ^/ ]<cr>rx<esc>$:noh<cr>
 nmap <leader>cn ^i- [ ] <esc>$
 nmap <leader>cr ^df]x<esc>$
-nmap <leader>cu ^/x]<cr>r <esc>$
+nmap <leader>cu ^/x]<cr>r <esc>$:noh<cr>
 nmap <leader>pr :PlugClean<cr>
 nmap <leader>pi :PlugInstall<cr>
 " when going up and down you can select wrapped lines
