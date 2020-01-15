@@ -7,6 +7,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'morhetz/gruvbox'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'editorconfig/editorconfig-vim'
+  Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+  Plug 'samoshkin/vim-mergetool'
+  Plug 'tpope/vim-fugitive'
 call plug#end()
 
 " General ------------------------------
@@ -28,6 +31,8 @@ nmap <leader>cc ^/ ]<cr>rx<esc>$:noh<cr>
 nmap <leader>cn ^i- [ ] <esc>$
 nmap <leader>cr ^df]x<esc>$
 nmap <leader>cu ^/x]<cr>r <esc>$:noh<cr>
+nmap <leader>ff :Clap files<cr>
+nmap <leader>fa :Clap grep<cr>
 nmap <leader>pr :PlugClean<cr>
 nmap <leader>pi :PlugInstall<cr>
 " when going up and down you can select wrapped lines
@@ -181,3 +186,4 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
