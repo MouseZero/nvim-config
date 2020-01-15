@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'morhetz/gruvbox'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " General ------------------------------
@@ -23,17 +24,23 @@ nnoremap <leader>mm :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>mb :wincmd =<cr>
 
 " -----Normal Mode Keymapping-----
-nmap <leader>ve :sp $MYVIMRC<cr>
-nmap <leader>vl :source $MYVIMRC<cr>
+nmap <leader>cc ^/ ]<cr>rx<esc>$
+nmap <leader>cn ^i- [ ] <esc>$
+nmap <leader>cr ^df]x<esc>$
+nmap <leader>cu ^/x]<cr>r <esc>$
 nmap <leader>pr :PlugClean<cr>
 nmap <leader>pi :PlugInstall<cr>
 " when going up and down you can select wrapped lines
 nmap k gk
 nmap j gj
 nmap <leader>sp :split<cr>
+nmap <leader>to :e ~/.todo.md<cr>
 nmap <leader>tt :tabnew<cr>
 nmap <leader>tn :tabnext<cr>
 nmap <leader>tp :tabnext<cr>
+nmap <leader>ve :e $MYVIMRC<cr>
+nmap <leader>vl :source $MYVIMRC<cr>
+nmap <leader>vs :vsplit<cr>
 nmap <leader>ww :close<cr>
 
 " Insert Mode Keymapping
@@ -42,9 +49,6 @@ imap jk <esc>
 " General Editor
 :set relativenumber
 :set number
-:set tabstop=2
-:set shiftwidth=2
-:set expandtab
 
 " More generals ------------------------------
 
