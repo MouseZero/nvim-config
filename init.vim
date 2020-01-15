@@ -47,6 +47,7 @@ nmap <leader>ve :e $MYVIMRC<cr>
 nmap <leader>vl :source $MYVIMRC<cr>
 nmap <leader>vs :vsplit<cr>
 nmap <leader>ww :close<cr>
+nmap <leader>// :noh<cr>
 
 " Insert Mode Keymapping
 imap jk <esc>
