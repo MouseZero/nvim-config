@@ -10,7 +10,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
   Plug 'samoshkin/vim-mergetool'
   Plug 'tpope/vim-fugitive'
-  Plug 'preservim/nerdcommenter'
 call plug#end()
 
 " General ------------------------------
@@ -36,6 +35,7 @@ nmap <leader>cu ^/x]<cr>r <esc>$:noh<cr>
 nmap <leader>ff :Clap files<cr>
 nmap <leader>fa :Clap grep<cr>
 nmap <leader>pp "+p
+nmap <leader>no :e ~/.note.md<cr>
 nmap <leader>pr :PlugClean<cr>
 nmap <leader>pi :PlugInstall<cr>
 " when going up and down you can select wrapped lines
@@ -46,10 +46,10 @@ nmap <leader>to :e ~/.todo.md<cr>
 nmap <leader>tt :tabnew<cr>
 nmap <leader>tn :tabnext<cr>
 nmap <leader>tp :tabprevious<cr>
+nmap <leader>ww :close<cr>
 nmap <leader>ve :e $MYVIMRC<cr>
 nmap <leader>vl :source $MYVIMRC<cr>
 nmap <leader>vs :vsplit<cr>
-nmap <leader>ww :close<cr>
 nmap <leader>// :noh<cr>
 
 " Insert Mode Keymapping
