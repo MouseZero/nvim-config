@@ -10,6 +10,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
   Plug 'samoshkin/vim-mergetool'
   Plug 'tpope/vim-fugitive'
+  Plug 'preservim/nerdcommenter'
 call plug#end()
 
 " General ------------------------------
@@ -27,10 +28,11 @@ nnoremap <leader>mm :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>mb :wincmd =<cr>
 
 " -----Normal Mode Keymapping-----
-xnore <leader>cc "+y
+xnoremap <leader>cc "+y
 nmap <leader>cb ^/ ]<cr>rx<esc>$:noh<cr>
 nmap <leader>cn ^i- [ ] <esc>$
 nmap <leader>cr ^df]x<esc>$
+nmap <leader>cs :noh<cr>
 nmap <leader>cu ^/x]<cr>r <esc>$:noh<cr>
 nmap <leader>ff :Clap files<cr>
 nmap <leader>fa :Clap grep<cr>
@@ -50,7 +52,8 @@ nmap <leader>ww :close<cr>
 nmap <leader>ve :e $MYVIMRC<cr>
 nmap <leader>vl :source $MYVIMRC<cr>
 nmap <leader>vs :vsplit<cr>
-nmap <leader>// :noh<cr>
+nnoremap <leader>// :call NERDComment(0,"toggle")<CR>
+vnoremap <leader>// :call NERDComment(0,"toggle")<CR>
 
 " Insert Mode Keymapping
 imap jk <esc>
