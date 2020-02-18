@@ -28,7 +28,7 @@ nnoremap <leader>mm :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>mb :wincmd =<cr>
 
 " -----Normal Mode Keymapping-----
-xnoremap <leader>cc "+y
+xnoremap <leader>yy "+y
 nmap <leader>cb ^/ ]<cr>rx<esc>$:noh<cr>
 nmap <leader>cn ^i- [ ] <esc>$
 nmap <leader>cr ^df]x<esc>$
@@ -52,8 +52,8 @@ nmap <leader>ww :close<cr>
 nmap <leader>ve :e $MYVIMRC<cr>
 nmap <leader>vl :source $MYVIMRC<cr>
 nmap <leader>vs :vsplit<cr>
-nnoremap <leader>// :call NERDComment(0,"toggle")<CR>
-vnoremap <leader>// :call NERDComment(0,"toggle")<CR>
+nmap <leader>// :call NERDComment(0,"toggle")<CR>
+vmap <leader>// :call NERDComment(0,"toggle")<CR>
 
 " Insert Mode Keymapping
 imap jk <esc>
