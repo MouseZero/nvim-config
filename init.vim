@@ -33,7 +33,7 @@ nmap <leader>cb ^/ ]<cr>rx<esc>$A (<C-r>=strftime('%F')<cr>)<esc>:noh<cr>
 nmap <leader>cn ^i- [ ] <esc>$
 nmap <leader>cr ^df]x<esc>$
 nmap <leader>cs :noh<cr>
-nmap <leader>cu ^/x]<cr>r <esc>$:noh<cr>
+nmap <leader>cu ^/x]<cr>r <esc>$F(lda(<esc>$x:noh<cr>
 nmap <leader>ff :Clap files<cr>
 nmap <leader>fa :Clap grep<cr>
 nmap <leader>pp "+p
