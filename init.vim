@@ -29,7 +29,7 @@ nnoremap <leader>mb :wincmd =<cr>
 
 " -----Normal Mode Keymapping-----
 xnoremap <leader>yy "+y
-nmap <leader>cb ^/ ]<cr>rx<esc>$:noh<cr>
+nmap <leader>cb ^/ ]<cr>rx<esc>$A (<C-r>=strftime('%F')<cr>)<esc>:noh<cr>
 nmap <leader>cn ^i- [ ] <esc>$
 nmap <leader>cr ^df]x<esc>$
 nmap <leader>cs :noh<cr>
