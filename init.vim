@@ -13,6 +13,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'samoshkin/vim-mergetool'
   Plug 'tpope/vim-fugitive'
   Plug 'preservim/nerdcommenter'
+  Plug 'preservim/nerdtree'
+  Plug 'prettier/vim-prettier'
 call plug#end()
 
 " General ------------------------------
@@ -31,31 +33,37 @@ nnoremap <leader>mb :wincmd =<cr>
 
 " -----Normal Mode Keymapping-----
 xnoremap <leader>yy "+y
+nmap <leader>// :call NERDComment(0,"toggle")<CR>
 nmap <leader>cb ^/ ]<cr>rx<esc>$A (<C-r>=strftime('%F')<cr>)<esc>:noh<cr>
 nmap <leader>cn ^i- [ ] <esc>$
 nmap <leader>cr ^df]x<esc>$
 nmap <leader>cs :noh<cr>
 nmap <leader>cu ^/x]<cr>r <esc>$F(lda(<esc>$x:noh<cr>
-nmap <leader>ff :Clap files<cr>
+nmap <leader>ee :NERDTreeToggle<CR>
+nmap <leader>ef :NERDTreeFind<CR>
 nmap <leader>fa :Clap grep<cr>
-nmap <leader>pp "+p
+nmap <leader>ff :Clap files<cr>
 nmap <leader>no :e ~/.note.md<cr>
-nmap <leader>pr :PlugClean<cr>
 nmap <leader>pi :PlugInstall<cr>
-" when going up and down you can select wrapped lines
-nmap k gk
-nmap j gj
+nmap <leader>pp "+p
+nmap <leader>pr :PlugClean<cr>
 nmap <leader>sp :split<cr>
-nmap <leader>to :e ~/.todo.md<cr>
-nmap <leader>tt :tabnew<cr>
+nmap <leader>sw "xdiwdwep"xp<cr>
 nmap <leader>tn :tabnext<cr>
+nmap <leader>to :e ~/.todo.md<cr>
 nmap <leader>tp :tabprevious<cr>
-nmap <leader>ww :close<cr>
+nmap <leader>tt :tabnew<cr>
 nmap <leader>ve :e $MYVIMRC<cr>
 nmap <leader>vl :source $MYVIMRC<cr>
 nmap <leader>vs :vsplit<cr>
-nmap <leader>// :call NERDComment(0,"toggle")<CR>
+nmap <leader>ww :close<cr>
+nmap <leader>zi :set foldmethod=indent<CR>
+nmap <leader>zm :set foldmethod=manual<CR>
+nmap j gj
+nmap k gk
+" visual mode
 vmap <leader>// :call NERDComment(0,"toggle")<CR>
+vmap <leader>pf :PrettierPartial<cr>
 
 " Insert Mode Keymapping
 imap jk <esc>
@@ -195,4 +203,13 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" Theme --------------------------------
+hi StatusLine ctermbg=237 ctermfg=201
+
+" Indent -------------------------------
+set autoindent
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
 
