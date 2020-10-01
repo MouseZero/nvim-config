@@ -14,7 +14,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-fugitive'
   Plug 'preservim/nerdcommenter'
   Plug 'preservim/nerdtree'
-  Plug 'prettier/vim-prettier'
+  Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 call plug#end()
 
 " General ------------------------------
