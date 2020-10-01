@@ -208,7 +208,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " Theme --------------------------------
-hi StatusLine ctermbg=237 ctermfg=201
+hi StatusLine ctermbg=0 ctermfg=8
 
 " Indent -------------------------------
 set autoindent
