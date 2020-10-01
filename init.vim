@@ -43,6 +43,7 @@ nmap <leader>ee :NERDTreeToggle<CR>
 nmap <leader>ef :NERDTreeFind<CR>
 nmap <leader>fa :Clap grep<cr>
 nmap <leader>ff :Clap files<cr>
+nmap <leader>fn :echo @%<cr>
 nmap <leader>no :e ~/.note.md<cr>
 nmap <leader>pi :PlugInstall<cr>
 nmap <leader>pp "+p
