@@ -44,9 +44,11 @@ nmap <leader>cu ^/x]<cr>r <esc>$F(lda(<esc>$x:noh<cr>
 nmap <leader>ee :NERDTreeToggle<CR>
 nmap <leader>ef :NERDTreeFind<CR>
 nmap <leader>fa :Clap grep<cr>
+nmap <leader>fc :! printf '\%s' "%" \| pbcopy<cr>
 nmap <leader>ff :Clap files<cr>
 nmap <leader>fn :echo @%<cr>
 nmap <leader>no :e ~/.note.md<cr>
+nmap <leader>th :e ./hide/think.md<cr>
 nmap <leader>pi :PlugInstall<cr>
 nmap <leader>pp "+p
 nmap <leader>pr :PlugClean<cr>
