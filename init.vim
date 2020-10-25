@@ -17,6 +17,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+	Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+		\ 'tag': '0.1.155',
+    \ 'do': 'bash install.sh',
+    \ }
+	Plug 'junegunn/fzf'
+	Plug 'ionide/Ionide-vim', {
+		\ 'do':  'make fsautocomplete',
+		\}
 call plug#end()
 
 " General ------------------------------
@@ -47,6 +56,8 @@ nmap <leader>fa :Clap grep<cr>
 nmap <leader>fc :! printf '\%s' "%" \| pbcopy<cr>
 nmap <leader>ff :Clap files<cr>
 nmap <leader>fn :echo @%<cr>
+nmap <leader>it :set expandtab! \| set shiftwidth=2 \| set softtabstop=2 \| set tabstop=2<cr>
+nmap <leader>is :set expandtab \| set shiftwidth=4 \| set softtabstop=4 \| set tabstop=4<cr>
 nmap <leader>no :e ~/.note.md<cr>
 nmap <leader>th :e ./hide/think.md<cr>
 nmap <leader>pi :PlugInstall<cr>
