@@ -46,6 +46,7 @@ nnoremap <leader>mb :wincmd =<cr>
 xnoremap <leader>yy "+y
 nmap <leader>// :call NERDComment(0,"toggle")<CR>
 nmap <leader>cb ^/ ]<cr>rx<esc>$A (<C-r>=strftime('%F')<cr>)<esc>:noh<cr>
+nmap <leader>cl :e ~/.clipboard.md<cr>
 nmap <leader>cn ^i- [ ] <esc>$
 nmap <leader>cr ^df]x<esc>$
 nmap <leader>cs :noh<cr>
@@ -56,15 +57,15 @@ nmap <leader>fa :Clap grep<cr>
 nmap <leader>fc :! printf '\%s' "%" \| pbcopy<cr>
 nmap <leader>ff :Clap files<cr>
 nmap <leader>fn :echo @%<cr>
-nmap <leader>it :set expandtab! \| set shiftwidth=2 \| set softtabstop=2 \| set tabstop=2<cr>
 nmap <leader>is :set expandtab \| set shiftwidth=4 \| set softtabstop=4 \| set tabstop=4<cr>
+nmap <leader>it :set expandtab! \| set shiftwidth=2 \| set softtabstop=2 \| set tabstop=2<cr>
 nmap <leader>no :e ~/.note.md<cr>
-nmap <leader>th :e ./hide/think.md<cr>
 nmap <leader>pi :PlugInstall<cr>
 nmap <leader>pp "+p
 nmap <leader>pr :PlugClean<cr>
 nmap <leader>sp :split<cr>
 nmap <leader>sw "xdiwdwep"xp<cr>
+nmap <leader>th :e ./hide/think.md<cr>
 nmap <leader>tn :tabnext<cr>
 nmap <leader>to :e ~/.todo.md<cr>
 nmap <leader>tp :tabprevious<cr>
