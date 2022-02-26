@@ -6,10 +6,13 @@ call plug#begin('~/.vim/plugged')
   Plug 'christoomey/vim-tmux-navigator'
   Plug 'ctrlpvim/ctrlp.vim'
   Plug 'tpope/vim-surround'
+	Plug 'dense-analysis/ale'
   Plug 'morhetz/gruvbox'
+	Plug 'sainnhe/edge'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'editorconfig/editorconfig-vim'
-  Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
+	Plug 'easymotion/vim-easymotion'
+	Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
   Plug 'samoshkin/vim-mergetool'
   Plug 'tpope/vim-fugitive'
   Plug 'preservim/nerdcommenter'
@@ -33,7 +36,8 @@ call plug#end()
 let mapleader = "\<Space>"
 syntax on
 set background=dark
-colorscheme gruvbox
+"colorscheme gruvbox
+colorscheme edge
 
 " automatically rebalance windows on vim resize
 autocmd VimResized * :wincmd =
@@ -46,6 +50,7 @@ nnoremap <leader>mb :wincmd =<cr>
 xnoremap <leader>yy "+y
 nmap <leader>// :call NERDComment(0,"toggle")<CR>
 nmap <leader>cb ^/ ]<cr>rx<esc>$A (<C-r>=strftime('%F')<cr>)<esc>:noh<cr>
+nmap <leader>cf :!npx prettier --write %<cr>
 nmap <leader>cl :e ~/.clipboard.md<cr>
 nmap <leader>cn ^i- [ ] <esc>$
 nmap <leader>cr ^df]x<esc>$
@@ -56,7 +61,8 @@ nmap <leader>ef :NERDTreeFind<CR>
 nmap <leader>fa :Clap grep<cr>
 nmap <leader>fc :! printf '\%s' "%" \| pbcopy<cr>
 nmap <leader>ff :Clap files<cr>
-nmap <leader>fn :echo @%<cr>
+nmap <leader>fw :echo @%<cr>
+nmap <leader>gb :!git blame %<cr>
 nmap <leader>is :set expandtab \| set shiftwidth=4 \| set softtabstop=4 \| set tabstop=4<cr>
 nmap <leader>it :set expandtab! \| set shiftwidth=2 \| set softtabstop=2 \| set tabstop=2<cr>
 nmap <leader>no :e ~/.note.md<cr>
@@ -66,13 +72,12 @@ nmap <leader>pr :PlugClean<cr>
 nmap <leader>sp :split<cr>
 nmap <leader>sw "xdiwdwep"xp<cr>
 nmap <leader>th :e ./hide/think.md<cr>
-nmap <leader>tn :tabnext<cr>
 nmap <leader>to :e ~/.todo.md<cr>
-nmap <leader>tp :tabprevious<cr>
-nmap <leader>tt :tabnew<cr>
+nmap <leader>tt :tabnew %<cr>
 nmap <leader>ve :e $MYVIMRC<cr>
 nmap <leader>vl :source $MYVIMRC<cr>
 nmap <leader>vs :vsplit<cr>
+nmap <leader>wi :!code ~/OneDrive\ -\ ServiceNow/wiki<cr>
 nmap <leader>ww :close<cr>
 nmap <leader>zi :set foldmethod=indent<CR>
 nmap <leader>zm :set foldmethod=manual<CR>
@@ -82,11 +87,12 @@ nmap k gk
 vmap <leader>// :call NERDComment(0,"toggle")<CR>
 vmap <leader>pf :PrettierPartial<cr>
 
+
 " Insert Mode Keymapping
 imap jk <esc>
 
 " General Editor
-:set relativenumber
+" :set relativenumber
 :set number
 
 " More generals ------------------------------
@@ -230,3 +236,4 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
+let NERDTreeShowHidden=1
