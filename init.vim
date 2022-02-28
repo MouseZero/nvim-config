@@ -47,6 +47,9 @@ autocmd VimResized * :wincmd =
 nnoremap <leader>mm :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>mb :wincmd =<cr>
 
+" -----Terminal Keymapping-----
+tnoremap <esc> <C-\><C-n>
+
 " -----Normal Mode Keymapping-----
 xnoremap <leader>yy "+y
 nmap <leader>// :call NERDComment(0,"toggle")<CR>
