@@ -63,6 +63,9 @@ nmap <leader>fc :! printf '\%s' "%" \| pbcopy<cr>
 nmap <leader>ff :Clap files<cr>
 nmap <leader>fw :echo @%<cr>
 nmap <leader>gb :!git blame %<cr>
+nmap <leader>gd :!git diff %<cr>
+nmap <leader>gh :!git log %<cr>
+nmap <leader>gl :!git log<cr>
 nmap <leader>is :set expandtab \| set shiftwidth=4 \| set softtabstop=4 \| set tabstop=4<cr>
 nmap <leader>it :set expandtab! \| set shiftwidth=2 \| set softtabstop=2 \| set tabstop=2<cr>
 nmap <leader>no :e ~/.note.md<cr>
