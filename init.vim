@@ -75,7 +75,8 @@ nmap <leader>pi :PlugInstall<cr>
 nmap <leader>pp "+p
 nmap <leader>pr :PlugClean<cr>
 nmap <leader>sp :split<cr>
-nmap <leader>sw "xdiwdwep"xp<cr>
+nmap <leader>sw :resize 7<cr>
+nmap <leader>tne :split<cr><C-w>j:Tnew<cr>:resize 7<cr>
 nmap <leader>trl :TREPLSendLine<cr>
 nmap <leader>trf :TREPLSendFile<cr>
 nmap <leader>to :e ~/.todo.md<cr>
