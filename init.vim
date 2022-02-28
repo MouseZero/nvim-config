@@ -74,6 +74,7 @@ nmap <leader>gb :terminal git blame %<cr>
 nmap <leader>is :set expandtab \| set shiftwidth=4 \| set softtabstop=4 \| set tabstop=4<cr>
 nmap <leader>it :set expandtab! \| set shiftwidth=2 \| set softtabstop=2 \| set tabstop=2<cr>
 nmap <leader>no :e ~/.note.md<cr>
+nmap <leader>nps :split<cr><C-w>j:resize 7<cr>
 nmap <leader>pi :PlugInstall<cr>
 nmap <leader>pp "+p
 nmap <leader>pr :PlugClean<cr>
