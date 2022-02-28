@@ -1,3 +1,9 @@
+" Indent -------------------------------
+set autoindent
+set shiftwidth=2
+set softtabstop=2
+set tabstop=2
+
 " vim-plug ------------------------------
 " To install use 
 " `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
@@ -30,6 +36,7 @@ call plug#begin('~/.vim/plugged')
 		\ 'do':  'make fsautocomplete',
 		\}
 	Plug 'kassio/neoterm'
+	Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " General ------------------------------
@@ -241,12 +248,6 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " Theme --------------------------------
 hi StatusLine ctermbg=0 ctermfg=8
-
-" Indent -------------------------------
-set autoindent
-set shiftwidth=2
-set softtabstop=2
-set tabstop=2
 
 let NERDTreeShowHidden=1
 
