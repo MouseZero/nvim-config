@@ -249,3 +249,7 @@ set softtabstop=2
 set tabstop=2
 
 let NERDTreeShowHidden=1
+
+" -----Ale Linting-----
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
