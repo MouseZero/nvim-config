@@ -59,13 +59,14 @@ nmap <leader>cu ^/x]<cr>r <esc>$F(lda(<esc>$x:noh<cr>
 nmap <leader>ee :NERDTreeToggle<CR>
 nmap <leader>ef :NERDTreeFind<CR>
 nmap <leader>fa :Clap grep<cr>
-nmap <leader>fc :! printf '\%s' "%" \| pbcopy<cr>
+nmap <leader>fc :!printf '\%s' "%" \| pbcopy<cr>
 nmap <leader>ff :Clap files<cr>
 nmap <leader>fw :echo @%<cr>
-nmap <leader>gb :!git blame %<cr>
-nmap <leader>gd :!git diff %<cr>
-nmap <leader>gh :!git log %<cr>
-nmap <leader>gl :!git log<cr>
+nmap <leader>gb :terminal git blame %<cr>
+nmap <leader>gd :terminal git diff %<cr>
+nmap <leader>gh :terminal git log %<cr>
+nmap <leader>gl :terminal git log<cr>
+nmap <leader>gb :terminal git blame %<cr>
 nmap <leader>is :set expandtab \| set shiftwidth=4 \| set softtabstop=4 \| set tabstop=4<cr>
 nmap <leader>it :set expandtab! \| set shiftwidth=2 \| set softtabstop=2 \| set tabstop=2<cr>
 nmap <leader>no :e ~/.note.md<cr>
@@ -147,10 +148,10 @@ nmap <silent> [g <Plug>(coc-diagnostic-prev)
 nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+"nmap <silent> gd <Plug>(coc-definition)
+"nmap <silent> gy <Plug>(coc-type-definition)
+"nmap <silent> gi <Plug>(coc-implementation)
+"nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
