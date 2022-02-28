@@ -36,7 +36,6 @@ call plug#begin('~/.vim/plugged')
 		\ 'do':  'make fsautocomplete',
 		\}
 	Plug 'kassio/neoterm'
-	Plug 'editorconfig/editorconfig-vim'
 call plug#end()
 
 " General ------------------------------
