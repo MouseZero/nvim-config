@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'ionide/Ionide-vim', {
 		\ 'do':  'make fsautocomplete',
 		\}
+	Plug 'kassio/neoterm'
 call plug#end()
 
 " General ------------------------------
@@ -75,7 +76,8 @@ nmap <leader>pp "+p
 nmap <leader>pr :PlugClean<cr>
 nmap <leader>sp :split<cr>
 nmap <leader>sw "xdiwdwep"xp<cr>
-nmap <leader>th :e ./hide/think.md<cr>
+nmap <leader>trl :TREPLSendLine<cr>
+nmap <leader>trf :TREPLSendFile<cr>
 nmap <leader>to :e ~/.todo.md<cr>
 nmap <leader>tt :tabnew %<cr>
 nmap <leader>ve :e $MYVIMRC<cr>
@@ -90,6 +92,7 @@ nmap k gk
 " visual mode
 vmap <leader>// :call NERDComment(0,"toggle")<CR>
 vmap <leader>pf :PrettierPartial<cr>
+vmap <leader>trs :TREPLSendSelection<cr>
 
 
 " Insert Mode Keymapping
