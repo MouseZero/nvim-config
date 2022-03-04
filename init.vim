@@ -90,7 +90,6 @@ tnoremap <esc> <C-\><C-n>
 xnoremap <leader>yy "+y
 nmap <leader>// :call NERDComment(0,"toggle")<CR>
 nmap <leader>cb ^/ ]<cr>rx<esc>$A (<C-r>=strftime('%F')<cr>)<esc>:noh<cr>
-nmap <leader>cf :!npx prettier --write %<cr>
 nmap <leader>cl :e ~/.clipboard.md<cr>
 nmap <leader>cn ^i- [ ] <esc>$
 nmap <leader>cr ^df]x<esc>$
@@ -112,11 +111,14 @@ nmap <leader>it :set expandtab! \| set shiftwidth=2 \| set softtabstop=2 \| set 
 nmap <leader>no :e ~/.note.md<cr>
 nmap <leader>nps :split<cr><C-w>j:resize 7<cr>
 nmap <leader>pi :PlugInstall<cr>
+nmap <leader>pf :Prettier<cr>
 nmap <leader>pp "+p
 nmap <leader>pr :PlugClean<cr>
 nmap <leader>sp :split<cr>
+nmap <leader>snf :T tectonic test functional<cr>
 nmap <leader>sw :resize 7<cr>
 nmap <leader>tne :split<cr><C-w>j:Tnew<cr>:resize 7<cr>
+nmap <leader>tfc ipwd<cr><esc>k
 nmap <leader>trl :TREPLSendLine<cr>
 nmap <leader>trf :TREPLSendFile<cr>
 nmap <leader>to :e ~/.todo.md<cr>
