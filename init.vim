@@ -38,6 +38,36 @@ call plug#begin('~/.vim/plugged')
 	Plug 'kassio/neoterm'
 call plug#end()
 
+" Learning -----------------------------
+" Shim functions so old code gets passed through to the autoload functions
+function! s:get_visual_selection()
+	echo a:firstline
+	local s_start = vim.fn.getpos("'<")
+	local s_end = vim.fn.getpos("'>")
+	local n_lines = math.abs(s_end[2] - s_start[2]) + 1
+	local lines = vim.api.nvim_buf_get_lines(0, s_start[2] - 1, s_end[2], false)
+	lines[1] = string.sub(lines[1], s_start[3], -1)
+	if n_lines == 1 then
+		lines[n_lines] = string.sub(lines[n_lines], 1, s_end[3] - s_start[3] + 1)
+	else
+		lines[n_lines] = string.sub(lines[n_lines], 1, s_end[3])
+	end
+	return table.concat(lines, '\n')
+endfunction
+
+function! FollowJS()
+	edit %:h/s:get_visual_selection().js
+endfunction
+
+function! FollowIndexJS()
+	edit %:h/s:get_visual_selection()/index.js
+endfunction
+
+function! MYFunction() range
+	echo a:firstline
+	echo a:lastline
+endfunction
+
 " General ------------------------------
 
 let mapleader = "\<Space>"
@@ -104,6 +134,8 @@ nmap k gk
 vmap <leader>// :call NERDComment(0,"toggle")<CR>
 vmap <leader>pf :PrettierPartial<cr>
 vmap <leader>trs :TREPLSendSelection<cr>
+vmap <leader>fgj :call FollowJS()<CR>
+vmap <leader>fgi :call FollowJS()<CR>
 
 
 " Insert Mode Keymapping
@@ -253,3 +285,6 @@ let NERDTreeShowHidden=1
 " -----Ale Linting-----
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
+
+" NERDComment
+let g:NERDCreateDefaultMappings = 0
