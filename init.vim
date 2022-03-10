@@ -106,17 +106,18 @@ nmap <leader>gd :terminal git diff %<cr>
 nmap <leader>gh :terminal git log %<cr>
 nmap <leader>gl :terminal git log<cr>
 nmap <leader>gb :terminal git blame %<cr>
+"nmap <leader>lw :resize 40<cr> "large window
 nmap <leader>is :set expandtab \| set shiftwidth=4 \| set softtabstop=4 \| set tabstop=4<cr>
 nmap <leader>it :set expandtab! \| set shiftwidth=2 \| set softtabstop=2 \| set tabstop=2<cr>
 nmap <leader>no :e ~/.note.md<cr>
-nmap <leader>nps :split<cr><C-w>j:resize 7<cr>
+nmap <leader>nps :split<cr><C-w>j:resize 7<cr> "new pane small
 nmap <leader>pi :PlugInstall<cr>
 nmap <leader>pf :Prettier<cr>
 nmap <leader>pp "+p
 nmap <leader>pr :PlugClean<cr>
 nmap <leader>sp :split<cr>
 nmap <leader>snf :T tectonic test functional<cr>
-nmap <leader>sw :resize 7<cr>
+nmap <leader>sw :resize 7<cr> "smaller window
 nmap <leader>tne :split<cr><C-w>j:Tnew<cr>:resize 7<cr>
 nmap <leader>tfc ipwd<cr><esc>k
 nmap <leader>trl :TREPLSendLine<cr>
