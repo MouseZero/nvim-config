@@ -106,7 +106,7 @@ nmap <leader>gd :terminal git diff %<cr>
 nmap <leader>gh :terminal git log %<cr>
 nmap <leader>gl :terminal git log<cr>
 nmap <leader>gb :terminal git blame %<cr>
-"nmap <leader>lw :resize 40<cr> "large window
+nmap <leader>lw :resize 30<cr> "large window
 nmap <leader>is :set expandtab \| set shiftwidth=4 \| set softtabstop=4 \| set tabstop=4<cr>
 nmap <leader>it :set expandtab! \| set shiftwidth=2 \| set softtabstop=2 \| set tabstop=2<cr>
 nmap <leader>no :e ~/.note.md<cr>
