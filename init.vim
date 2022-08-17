@@ -15,7 +15,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'dense-analysis/ale'
   Plug 'morhetz/gruvbox'
 	Plug 'sainnhe/edge'
-  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
   Plug 'editorconfig/editorconfig-vim'
 	Plug 'easymotion/vim-easymotion'
 	Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
@@ -142,7 +142,14 @@ vmap <leader>fgi :call FollowJS()<CR>
 
 
 " Insert Mode Keymapping
-imap jk <esc>
+imap ;jk <esc>
+imap ;;ct <c-r>=strftime('%c')<CR>
+imap ;;ts - Story<CR><tab>- <c-r>=strftime('%c')<CR>
+imap ;;tm - Meeting<CR><tab>- <c-r>=strftime('%c')<CR>
+imap ;;tl - Lunch<CR><tab>- <c-r>=strftime('%c')<CR>
+imap ;;te - Email<CR><tab>- <c-r>=strftime('%c')<CR>
+imap ;;td - Defect<CR><tab>- <c-r>=strftime('%c')<CR>
+imap ;;tr - Code Review<CR><tab>- <c-r>=strftime('%c')<CR>
 
 " General Editor
 " :set relativenumber
