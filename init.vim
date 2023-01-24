@@ -4,6 +4,21 @@ set shiftwidth=2
 set softtabstop=2
 set tabstop=2
 
+" Notes --------------------------------
+" How to change the language of a file
+" :setfiletype html
+"
+"Spell checker
+" :set spell
+" : ]s
+" z=
+"
+" Go to file that your cursor is on
+" gt
+"
+" Go to website
+" gx
+
 " vim-plug ------------------------------
 " To install use 
 " `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
@@ -20,12 +35,15 @@ call plug#begin('~/.vim/plugged')
 	Plug 'easymotion/vim-easymotion'
 	Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
   Plug 'samoshkin/vim-mergetool'
-  Plug 'tpope/vim-fugitive'
+	Plug 'airblade/vim-gitgutter'
+	Plug 'jreybert/vimagit'
   Plug 'preservim/nerdcommenter'
   Plug 'preservim/nerdtree'
+	Plug 'tpope/vim-fugitive'
+	Plug 'tpope/vim-rhubarb'
   Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'xml'] }
 	Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
 		\ 'tag': '0.1.155',
@@ -36,6 +54,7 @@ call plug#begin('~/.vim/plugged')
 		\ 'do':  'make fsautocomplete',
 		\}
 	Plug 'kassio/neoterm'
+	Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
 " General ------------------------------
@@ -53,29 +72,49 @@ autocmd VimResized * :wincmd =
 nnoremap <leader>mm :wincmd _<cr>:wincmd \|<cr>
 nnoremap <leader>mb :wincmd =<cr>
 
+" -----Git Gutter-----
+let g:gitgutter_sign_added = '+'
+let g:gitgutter_sign_modified = '>'
+let g:gitgutter_sign_removed = '-'
+let g:gitgutter_sign_removed_first_line = '^'
+let g:gitgutter_sign_modified_removed = '<'
+
+let g:gitgutter_override_sign_column_highlight = 1
+highlight SignColumn guibg=bg
+highlight SignColumn ctermbg=bg
+
 " -----Terminal Keymapping-----
 tnoremap <esc> <C-\><C-n>
 
 " -----Normal Mode Keymapping-----
 xnoremap <leader>yy "+y
-nmap <leader>// :call NERDComment(0,"toggle")<CR>
-nmap <leader>cb ^/ ]<cr>rx<esc>$A (<C-r>=strftime('%F')<cr>)<esc>:noh<cr>
+nmap <leader>// :call nerdcommenter#Comment(0,"toggle")<CR>
+nmap <leader>cb ^/ ]<cr>rx<esc>$A (<C-r>=strftime('%F')<cr>)<esc>:noh<cr>0
+nmap <leader>cf :close<cr> " close file
 nmap <leader>cl :e ~/.clipboard.md<cr>
-nmap <leader>cn ^i- [ ] <esc>$
-nmap <leader>cr ^df]x<esc>$
+nmap <leader>cn ^i- [ ] <esc>0
+nmap <leader>cr ^df]x<esc>0
 nmap <leader>cs :noh<cr>
-nmap <leader>cu ^/x]<cr>r <esc>$F(lda(<esc>$x:noh<cr>
+nmap <leader>cu ^/x]<cr>r <esc>$F(lda(<esc>$x:noh<cr>0
 nmap <leader>ee :NERDTreeToggle<CR>
 nmap <leader>ef :NERDTreeFind<CR>
 nmap <leader>fa :Clap grep<cr>
 nmap <leader>fc :!printf '\%s' "%" \| pbcopy<cr>
 nmap <leader>ff :Clap files<cr>
 nmap <leader>fw :echo @%<cr>
-nmap <leader>gb :terminal git blame %<cr>
+nmap <Leader>ga <Plug>(GitGutterStageHunk)  " git add (chunk)
+nnoremap <Leader>gc :! git commit<cr> " git commit
+nmap <Leader>gn <Plug>(GitGutterNextHunk)  " git next
+nmap <Leader>gp <Plug>(GitGutterPrevHunk)  " git previous
+nnoremap <leader>gP :! git push<CR>  " git Push
+nmap <Leader>gu <Plug>(GitGutterUndoHunk)   " git undo (chunk)
+nnoremap <Leader>gb :Git blame<CR>  " git blame
+nnoremap <Leader>gB :GBrowse<CR>
+vnoremap <Leader>gB :GBrowse<CR>
 nmap <leader>gd :terminal git diff %<cr>
 nmap <leader>gh :terminal git log %<cr>
 nmap <leader>gl :terminal git log<cr>
-nmap <leader>gb :terminal git blame %<cr>
+nnoremap <leader>gs :Magit<CR>
 nmap <leader>lw :resize 30<cr> "large window
 nmap <leader>is :set expandtab \| set shiftwidth=4 \| set softtabstop=4 \| set tabstop=4<cr>
 nmap <leader>it :set expandtab! \| set shiftwidth=2 \| set softtabstop=2 \| set tabstop=2<cr>
@@ -88,12 +127,13 @@ nmap <leader>pr :PlugClean<cr>
 nmap <leader>sp :split<cr>
 nmap <leader>snf :T tectonic test functional<cr>
 nmap <leader>sw :resize 7<cr> "smaller window
+nmap <leader>tnb :tabnew<cr> "tab new blankPage
+nmap <leader>tnc :tabnew %<cr> "tab new currentPage
 nmap <leader>tne :split<cr><C-w>j:Tnew<cr>:resize 7<cr>
 nmap <leader>tfc ipwd<cr><esc>k
 nmap <leader>trl :TREPLSendLine<cr>
 nmap <leader>trf :TREPLSendFile<cr>
 nmap <leader>to :e ~/.todo.md<cr>
-nmap <leader>tt :tabnew %<cr>
 nmap <leader>ve :e $MYVIMRC<cr>
 nmap <leader>vl :source $MYVIMRC<cr>
 nmap <leader>vs :vsplit<cr>
@@ -104,20 +144,22 @@ nmap <leader>zm :set foldmethod=manual<CR>
 nmap j gj
 nmap k gk
 " visual mode
-vmap <leader>// :call NERDComment(0,"toggle")<CR>
+vmap <leader>// :call nerdcommenter#Comment(0,"toggle")<CR>
 vmap <leader>pf :PrettierPartial<cr>
 vmap <leader>trs :TREPLSendSelection<cr>
 
 
 " Insert Mode Keymapping
-imap ;jk <esc>
 imap ;;ct <c-r>=strftime('%c')<CR>
-imap ;;ts - Story<CR><tab>- <c-r>=strftime('%c')<CR>
-imap ;;tm - Meeting<CR><tab>- <c-r>=strftime('%c')<CR>
-imap ;;tl - Lunch<CR><tab>- <c-r>=strftime('%c')<CR>
-imap ;;te - Email<CR><tab>- <c-r>=strftime('%c')<CR>
 imap ;;td - Defect<CR><tab>- <c-r>=strftime('%c')<CR>
+imap ;;te - Email and Messaging<CR><tab>- <c-r>=strftime('%c')<CR>
+imap ;;tl - Lunch<CR><tab>- <c-r>=strftime('%c')<CR>
+imap ;;tm - Meeting<CR><tab>- <c-r>=strftime('%c')<CR>
+imap ;;to - Clock Out<CR><tab>- <c-r>=strftime('%c')<CR>
 imap ;;tr - Code Review<CR><tab>- <c-r>=strftime('%c')<CR>
+imap ;;ts - Story<CR><tab>- <c-r>=strftime('%c')<CR>
+imap ;;tt - Triage<CR><tab>- <c-r>=strftime('%c')<CR>
+imap ;jk <esc>
 
 " General Editor
 " :set relativenumber
@@ -254,6 +296,9 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+" ---- tpope/vim-rhubarb ----
+let g:github_enterprise_urls = ['https://code.devsnc.com']
 
 " Theme --------------------------------
 hi StatusLine ctermbg=0 ctermfg=8
