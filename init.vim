@@ -24,36 +24,23 @@ set tabstop=2
 " `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 call plug#begin('~/.vim/plugged')
   " Plugins
-  Plug 'christoomey/vim-tmux-navigator'
-  Plug 'ctrlpvim/ctrlp.vim'
-  Plug 'tpope/vim-surround'
 	Plug 'dense-analysis/ale'
-  Plug 'morhetz/gruvbox'
+  "Plug 'morhetz/gruvbox'
 	Plug 'sainnhe/edge'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-  Plug 'editorconfig/editorconfig-vim'
-	Plug 'easymotion/vim-easymotion'
 	Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
-  Plug 'samoshkin/vim-mergetool'
+	Plug 'samoshkin/vim-mergetool'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'jreybert/vimagit'
   Plug 'preservim/nerdcommenter'
   Plug 'preservim/nerdtree'
 	Plug 'tpope/vim-fugitive'
+	"Plug 'SirVer/ultisnips'
 	Plug 'tpope/vim-rhubarb'
   Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html', 'xml'] }
-	Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-		\ 'tag': '0.1.155',
-    \ 'do': 'bash install.sh',
-    \ }
 	Plug 'junegunn/fzf'
-	Plug 'ionide/Ionide-vim', {
-		\ 'do':  'make fsautocomplete',
-		\}
-	Plug 'kassio/neoterm'
 	Plug 'ludovicchabant/vim-gutentags'
 call plug#end()
 
@@ -80,8 +67,6 @@ let g:gitgutter_sign_removed_first_line = '^'
 let g:gitgutter_sign_modified_removed = '<'
 
 let g:gitgutter_override_sign_column_highlight = 1
-highlight SignColumn guibg=bg
-highlight SignColumn ctermbg=bg
 
 " -----Terminal Keymapping-----
 tnoremap <esc> <C-\><C-n>
@@ -167,6 +152,12 @@ imap ;jk <esc>
 
 " More generals ------------------------------
 
+" ---- Utilisnips ----
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsSnippetDirectories="/Users/russell.murray/.config/nvim/UltiSnips"
+
 " Conquer Of Completion ------------------------------
 " if hidden is not set, TextEdit might fail.
 set hidden
@@ -179,7 +170,7 @@ set nowritebackup
 set cmdheight=2
 
 " You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
+set updatetime=4000
 
 " don't give |ins-completion-menu| messages.
 set shortmess+=c
@@ -308,6 +299,10 @@ let NERDTreeShowHidden=1
 " -----Ale Linting-----
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
+" Fix files with prettier, and then ESLint.
+let b:ale_fixers = ['prettier', 'eslint']
+" Equivalent to the above.
+let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
 " NERDComment
 let g:NERDCreateDefaultMappings = 0
