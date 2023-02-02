@@ -24,7 +24,7 @@ set tabstop=2
 " `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 call plug#begin('~/.vim/plugged')
   " Plugins
-	Plug 'dense-analysis/ale'
+	"Plug 'dense-analysis/ale'
   "Plug 'morhetz/gruvbox'
 	Plug 'sainnhe/edge'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -109,6 +109,7 @@ nmap <leader>pi :PlugInstall<cr>
 nmap <leader>pf :Prettier<cr>
 nmap <leader>pp "+p
 nmap <leader>pr :PlugClean<cr>
+nmap <leader>sa ggVG
 nmap <leader>sp :split<cr>
 nmap <leader>snf :T tectonic test functional<cr>
 nmap <leader>sw :resize 7<cr> "smaller window
