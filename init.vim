@@ -31,6 +31,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 	Plug 'samoshkin/vim-mergetool'
 	Plug 'airblade/vim-gitgutter'
+	Plug 'christoomey/vim-tmux-navigator'
 	Plug 'jreybert/vimagit'
   Plug 'preservim/nerdcommenter'
   Plug 'preservim/nerdtree'
