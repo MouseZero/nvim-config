@@ -26,6 +26,7 @@ call plug#begin('~/.vim/plugged')
   " Plugins
 	"Plug 'dense-analysis/ale'
   "Plug 'morhetz/gruvbox'
+	Plug 'github/copilot.vim'
 	Plug 'sainnhe/edge'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
@@ -81,6 +82,7 @@ nmap <leader>cn ^i- [ ] <esc>0
 nmap <leader>cr ^df]x<esc>0
 nmap <leader>cs :noh<cr>
 nmap <leader>cu ^/x]<cr>r <esc>$F(lda(<esc>$x:noh<cr>0
+nmap <leader>cp :Copilot panel<cr>
 nmap <leader>ee :NERDTreeToggle<CR>
 nmap <leader>ef :NERDTreeFind<CR>
 nmap <leader>fa :Clap grep<cr>
