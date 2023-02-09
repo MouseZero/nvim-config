@@ -76,7 +76,6 @@ tnoremap <esc> <C-\><C-n>
 xnoremap <leader>yy "+y
 nmap <leader>// :call nerdcommenter#Comment(0,"toggle")<CR>
 nmap <leader>cb ^/ ]<cr>rx<esc>$A (<C-r>=strftime('%F')<cr>)<esc>:noh<cr>0
-nmap <leader>cf :close<cr> " close file
 nmap <leader>cl :e ~/.clipboard.md<cr>
 nmap <leader>cn ^i- [ ] <esc>0
 nmap <leader>cr ^df]x<esc>0
