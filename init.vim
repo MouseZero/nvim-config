@@ -70,6 +70,9 @@ let g:gitgutter_sign_modified_removed = '<'
 
 let g:gitgutter_override_sign_column_highlight = 1
 
+" ----- Copilot -----
+let g:copilot_node_command = "/Users/russell.murray/.n/bin/node16"
+
 " -----Terminal Keymapping-----
 tnoremap <esc> <C-\><C-n>
 
