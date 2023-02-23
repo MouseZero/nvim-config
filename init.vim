@@ -138,6 +138,7 @@ nmap k gk
 vmap <leader>// :call nerdcommenter#Comment(0,"toggle")<CR>
 vmap <leader>pf :PrettierPartial<cr>
 vmap <leader>trs :TREPLSendSelection<cr>
+vmap <leader>ga :GitGutterStageHunk<cr>
 
 
 " Insert Mode Keymapping
