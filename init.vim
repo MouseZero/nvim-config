@@ -26,7 +26,9 @@ call plug#begin('~/.vim/plugged')
   " Plugins
 	"Plug 'dense-analysis/ale'
   "Plug 'morhetz/gruvbox'
-	Plug 'github/copilot.vim'
+	if $MYMACHINEISFOR == "personal"
+		Plug 'github/copilot.vim'
+	endif
 	Plug 'sainnhe/edge'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
@@ -70,8 +72,11 @@ let g:gitgutter_sign_modified_removed = '<'
 
 let g:gitgutter_override_sign_column_highlight = 1
 
-" ----- Copilot -----
-let g:copilot_node_command = "/Users/russell.murray/.n/bin/node16"
+if $MYMACHINEISFOR == "personal"
+	" ----- Copilot -----
+	let g:copilot_node_command = "/Users/russell.murray/.n/bin/node16"
+endif
+
 
 " -----Terminal Keymapping-----
 tnoremap <esc> <C-\><C-n>
