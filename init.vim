@@ -29,6 +29,8 @@ call plug#begin('~/.vim/plugged')
 	if $MYMACHINEISFOR == "personal"
 		Plug 'github/copilot.vim'
 	endif
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
 	Plug 'sainnhe/edge'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
@@ -311,6 +313,9 @@ let g:github_enterprise_urls = ['https://code.devsnc.com']
 hi StatusLine ctermbg=0 ctermfg=8
 
 let NERDTreeShowHidden=1
+
+" ----- Airline -----
+let g:airline_powerline_fonts = 1
 
 " -----Ale Linting-----
 let g:ale_sign_error = '❌'
