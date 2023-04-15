@@ -33,7 +33,6 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'sainnhe/edge'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary' }
 	Plug 'samoshkin/vim-mergetool'
 	Plug 'airblade/vim-gitgutter'
 	Plug 'christoomey/vim-tmux-navigator'
@@ -96,9 +95,9 @@ nmap <leader>cu ^/x]<cr>r <esc>$F(lda(<esc>$x:noh<cr>0
 nmap <leader>cp :Copilot panel<cr>
 nmap <leader>ee :NERDTreeToggle<CR>
 nmap <leader>ef :NERDTreeFind<CR>
-nmap <leader>fa :Clap grep<cr>
+nmap <leader>fa :Rg<cr>
 nmap <leader>fc :!printf '\%s' "%" \| pbcopy<cr>
-nmap <leader>ff :Clap files<cr>
+nmap <leader>ff :GFiles<cr>
 nmap <leader>fw :echo @%<cr>
 nmap <Leader>ga <Plug>(GitGutterStageHunk)  " git add (chunk)
 nnoremap <Leader>gc :! git commit<cr> " git commit
