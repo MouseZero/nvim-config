@@ -89,10 +89,11 @@ nmap <leader>// :call nerdcommenter#Comment(0,"toggle")<CR>
 nmap <leader>cb ^/ ]<cr>rx<esc>$A (<C-r>=strftime('%F')<cr>)<esc>:noh<cr>0
 nmap <leader>cl :e ~/.clipboard.md<cr>
 nmap <leader>cn ^i- [ ] <esc>0
+nmap <leader>co :Copilot panel<cr>
+nmap <leader>cp ^i- <esc>0
 nmap <leader>cr ^df]x<esc>0
 nmap <leader>cs :noh<cr>
 nmap <leader>cu ^/x]<cr>r <esc>$F(lda(<esc>$x:noh<cr>0
-nmap <leader>cp :Copilot panel<cr>
 nmap <leader>ee :NERDTreeToggle<CR>
 nmap <leader>ef :NERDTreeFind<CR>
 nmap <leader>fa :Rg<cr>
@@ -143,9 +144,11 @@ nmap j gj
 nmap k gk
 " visual mode
 vmap <leader>// :call nerdcommenter#Comment(0,"toggle")<CR>
-vmap <leader>pf :PrettierPartial<cr>
-vmap <leader>trs :TREPLSendSelection<cr>
 vmap <leader>ga :GitGutterStageHunk<cr>
+vmap <leader>pf :PrettierPartial<cr>
+vmap <leader>sfg y:call SearchGoogle()<CR>
+vmap <leader>sfs y:call SearchCodeSNC()<CR>
+vmap <leader>trs :TREPLSendSelection<cr>
 
 
 " Insert Mode Keymapping
@@ -159,6 +162,25 @@ imap ;;tr - Code Review<CR><tab>- <c-r>=strftime('%c')<CR>
 imap ;;ts - Story<CR><tab>- <c-r>=strftime('%c')<CR>
 imap ;;tt - Triage<CR><tab>- <c-r>=strftime('%c')<CR>
 imap ;jk <esc>
+
+
+" Search for the selected
+
+function! SearchCodeSNC()
+    let search_term = substitute(@", ' ', '\+', 'g')
+    let search_url = 'https://code.devsnc.com/search\?q=' . search_term
+    let open_command = 'open -a "Google Chrome" ' . search_url
+		echo open_command
+    call system(open_command)
+endfunction
+
+function! SearchGoogle()
+    let search_term = substitute(@", ' ', '\+', 'g')
+    let search_url = 'https://google.com/search\?q=' . search_term
+    let open_command = 'open -a "Google Chrome" ' . search_url
+		echo open_command
+    call system(open_command)
+endfunction
 
 " General Editor
 " :set relativenumber
