@@ -146,6 +146,7 @@ nmap k gk
 vmap <leader>// :call nerdcommenter#Comment(0,"toggle")<CR>
 vmap <leader>ga :GitGutterStageHunk<cr>
 vmap <leader>pf :PrettierPartial<cr>
+vmap <leader>sfb y:call SearchBT()<CR>
 vmap <leader>sfg y:call SearchGoogle()<CR>
 vmap <leader>sfs y:call SearchCodeSNC()<CR>
 vmap <leader>trs :TREPLSendSelection<cr>
@@ -165,6 +166,14 @@ imap ;jk <esc>
 
 
 " Search for the selected
+
+function! SearchBT()
+    let search_term = substitute(@", ' ', '\+', 'g')
+    let search_url = 'https://buildtools1.service-now.com/rm_story.do\?sysparm_query=number=' . search_term
+    let open_command = 'open -a "Google Chrome" ' . search_url
+		echo open_command
+    call system(open_command)
+endfunction
 
 function! SearchCodeSNC()
     let search_term = substitute(@", ' ', '\+', 'g')
