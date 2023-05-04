@@ -122,6 +122,7 @@ nmap <leader>pi :PlugInstall<cr>
 nmap <leader>pf :Prettier<cr>
 nmap <leader>pp "+p
 nmap <leader>pr :PlugClean<cr>
+nmap <leader>qqqq :qa!<cr>
 nmap <leader>sa ggVG
 nmap <leader>sp :split<cr>
 nmap <leader>snf :T tectonic test functional<cr>
