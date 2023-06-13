@@ -98,7 +98,8 @@ nmap <leader>ee :NERDTreeToggle<CR>
 nmap <leader>ef :NERDTreeFind<CR>
 nmap <leader>fa :Rg<cr>
 nmap <leader>fc :!printf '\%s' "%" \| pbcopy<cr>
-nmap <leader>ff :GFiles<cr>
+nmap <leader>ff :Files<cr>
+nmap <leader>fg :GFiles<cr>
 nmap <leader>fw :echo @%<cr>
 nmap <Leader>ga <Plug>(GitGutterStageHunk)  " git add (chunk)
 nnoremap <Leader>gc :! git commit<cr> " git commit
