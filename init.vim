@@ -24,7 +24,7 @@ set tabstop=2
 " `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 call plug#begin('~/.vim/plugged')
   " Plugins
-	"Plug 'dense-analysis/ale'
+	Plug 'dense-analysis/ale'
   "Plug 'morhetz/gruvbox'
 	if $MYMACHINEISFOR == "personal"
 		Plug 'github/copilot.vim'
