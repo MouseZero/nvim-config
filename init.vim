@@ -119,6 +119,7 @@ nmap <leader>is :set expandtab \| set shiftwidth=4 \| set softtabstop=4 \| set t
 nmap <leader>it :set expandtab! \| set shiftwidth=2 \| set softtabstop=2 \| set tabstop=2<cr>
 nmap <leader>no :e ~/.note.md<cr>
 nmap <leader>nps :split<cr><C-w>j:resize 7<cr> "new pane small
+nmap <leader>ol f(lgx "open link
 nmap <leader>pi :PlugInstall<cr>
 nmap <leader>pf :Prettier<cr>
 nmap <leader>pp "+p
