@@ -24,11 +24,10 @@ set tabstop=2
 " `curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`
 call plug#begin('~/.vim/plugged')
   " Plugins
+	Plug 'easymotion/vim-easymotion'
 	Plug 'dense-analysis/ale'
   "Plug 'morhetz/gruvbox'
-	if $MYMACHINEISFOR == "personal"
-		Plug 'github/copilot.vim'
-	endif
+	Plug 'github/copilot.vim'
 	Plug 'vim-airline/vim-airline'
 	Plug 'vim-airline/vim-airline-themes'
 	Plug 'sainnhe/edge'
@@ -76,7 +75,7 @@ let g:gitgutter_override_sign_column_highlight = 1
 
 if $MYMACHINEISFOR == "personal"
 	" ----- Copilot -----
-	let g:copilot_node_command = "/Users/russell.murray/.n/bin/node16"
+	let g:copilot_node_command = "/usr/local/n/versions/node/16.20.2/bin/node"
 endif
 
 
@@ -97,7 +96,9 @@ nmap <leader>cu ^/x]<cr>r <esc>$F(lda(<esc>$x:noh<cr>0
 nmap <leader>ee :NERDTreeToggle<CR>
 nmap <leader>ef :NERDTreeFind<CR>
 nmap <leader>fa :Rg<cr>
+nmap <leader>fb :Buffers<cr>
 nmap <leader>fc :!printf '\%s' "%" \| pbcopy<cr>
+nmap <leader>fd :BD<cr>
 nmap <leader>ff :Files<cr>
 nmap <leader>fg :GFiles<cr>
 nmap <leader>fw :echo @%<cr>
@@ -132,6 +133,16 @@ nmap <leader>sw :resize 7<cr> "smaller window
 nmap <leader>tnb :tabnew<cr> "tab new blankPage
 nmap <leader>tnc :tabnew %<cr> "tab new currentPage
 nmap <leader>tne :split<cr><C-w>j:Tnew<cr>:resize 7<cr>
+nmap <leader>tn1 :tabmove 0<cr>
+nmap <leader>tn2 :tabmove 1<cr>
+nmap <leader>tn3 :tabmove 2<cr>
+nmap <leader>tn4 :tabmove 3<cr>
+nmap <leader>tn5 :tabmove 4<cr>
+nmap <leader>tn6 :tabmove 5<cr>
+nmap <leader>tn7 :tabmove 6<cr>
+nmap <leader>tn8 :tabmove 7<cr>
+nmap <leader>tn9 :tabmove 8<cr>
+nmap <leader>tn0 :tabmove 9<cr>
 nmap <leader>tfc ipwd<cr><esc>k
 nmap <leader>trl :TREPLSendLine<cr>
 nmap <leader>trf :TREPLSendFile<cr>
@@ -350,6 +361,22 @@ let NERDTreeShowHidden=1
 " ----- Airline -----
 let g:airline_powerline_fonts = 1
 
+" ----- Buffers -----
+" FZF Buffer Delete
+function! s:list_buffers() abort
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines) abort
+  " Use bdelete so buffers stay in locationlist
+  execute 'bdelete' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+
+command! BD call fzf#run(fzf#wrap({ 'source': s:list_buffers(), 'sink*': { lines -> s:delete_buffers(lines) }, 'options': '--multi --reverse --bind ctrl-a:select-all+accept' }))
+
 " -----Ale Linting-----
 let g:ale_sign_error = '❌'
 let g:ale_sign_warning = '⚠️'
@@ -360,3 +387,5 @@ let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 
 " NERDComment
 let g:NERDCreateDefaultMappings = 0
+
+set nowrap
