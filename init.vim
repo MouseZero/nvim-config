@@ -47,9 +47,20 @@ call plug#begin('~/.vim/plugged')
 	Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 	Plug 'junegunn/fzf.vim'
 	Plug 'ludovicchabant/vim-gutentags'
+
 call plug#end()
 
 " General ------------------------------
+
+function! OpenLink()
+    let line = getline('.')
+    if line =~ '\[\[.*\]\]'
+        let filename = matchstr(line, '\[\[\zs.*\ze\]\]')
+				exec 'edit ' . expand('%:p:h') . '/' . filename . '.md'
+    elseif line =~ '(\(.*\))'
+        normal! vi(:norm! gx
+    endif
+endfunction
 
 let mapleader = "\<Space>"
 syntax on
@@ -106,7 +117,7 @@ nmap <Leader>ga <Plug>(GitGutterStageHunk)  " git add (chunk)
 nnoremap <Leader>gc :! git commit<cr> " git commit
 nmap <Leader>gn <Plug>(GitGutterNextHunk)  " git next
 nmap <Leader>gp <Plug>(GitGutterPrevHunk)  " git previous
-nnoremap <leader>gP :! git push<CR>  " git Push
+nnoremap <Leader>gP :! git push<CR>  " git Push
 nmap <Leader>gu <Plug>(GitGutterUndoHunk)   " git undo (chunk)
 nnoremap <Leader>gb :Git blame<CR>  " git blame
 nnoremap <Leader>gB :GBrowse<CR>
@@ -120,7 +131,7 @@ nmap <leader>is :set expandtab \| set shiftwidth=4 \| set softtabstop=4 \| set t
 nmap <leader>it :set expandtab! \| set shiftwidth=2 \| set softtabstop=2 \| set tabstop=2<cr>
 nmap <leader>no :e ~/.note.md<cr>
 nmap <leader>nps :split<cr><C-w>j:resize 7<cr> "new pane small
-nmap <leader>ol f(lgx "open link
+nmap <leader>ol :call OpenLink()<CR>
 nmap <leader>pi :PlugInstall<cr>
 nmap <leader>pf :Prettier<cr>
 nmap <leader>pp "+p
@@ -330,7 +341,7 @@ command! -nargs=? Fold :call     CocAction('fold', <f-args>)
 command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
 
 " Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
+" set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Using CocList
 " Show all diagnostics
